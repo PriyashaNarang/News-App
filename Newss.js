@@ -10,7 +10,7 @@ export default function Newss(props) {
   const[totalResults,SettotalResults]=useState(0);
   const update=async()=>{
     props.setProgress(10);
-    const url=`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=38c96742b763429dbe5880b4fb1c8a90&page=${page}&pageSize=${props.pageSize}`;
+    const url=`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey={api-key}&page=${page}&pageSize=${props.pageSize}`;
     const data=await fetch(url);
     props.setProgress(30);
     const parsedata=await data.json();
@@ -24,7 +24,7 @@ export default function Newss(props) {
     update();
   })
   const fetchMoreData=async()=>{
-    const url=`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=38c96742b763429dbe5880b4fb1c8a90&page=${page+1}&pageSize=${props.pageSize}`
+    const url=`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey={api-key}&page=${page+1}&pageSize=${props.pageSize}`
     Setpage(page+1);
     const data=await fetch(url);
     const parsedata=await data.json();
